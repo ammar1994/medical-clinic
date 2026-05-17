@@ -280,7 +280,6 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <!-- الزر يحتوي الآن على أيقونة ونص توضيحي يتغير برمجياً -->
             <button class="theme-toggle" id="themeBtn" aria-label="تبديل المظهر">
                 <i class="fa-solid fa-moon"></i>
                 <span id="themeText">الوضع الداكن</span>
@@ -290,11 +289,11 @@
                 <p>استشاري علاج العقم وأطفال الأنابيب</p>
             </div>
             <div class="nav-links">
-                <!-- تم تصحيح مسار الصفحة الرئيسية ليعمل بشكل سليم -->
-                <a href="index.html">الرئيسية</a>
-                <a href="services.html">خدماتنا</a>
-                <a href="gallery.html" class="active">المعرض</a>
-                <a href="success.html">النجاحات</a>
+                <!-- تم إصلاح رابط الرئيسية وتغيير رابط النجاحات إلى النجاح -->
+                <a href="./index.html">الرئيسية</a>
+                <a href="./services.html">خدماتنا</a>
+                <a href="./gallery.html" class="active">المعرض</a>
+                <a href="./success.html">النجاح</a>
             </div>
         </div>
     </nav>
@@ -362,7 +361,6 @@
         const icon = themeBtn.querySelector('i');
         const themeText = document.getElementById('themeText');
 
-        // التحقق من المظهر المحفوظ سابقاً
         const currentTheme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', currentTheme);
         updateThemeUI(currentTheme);
@@ -379,7 +377,6 @@
             updateThemeUI(theme);
         });
 
-        // دالة لتحديث الأيقونة والنص التوضيحي معاً بشكل متناسق الثبات بدون اهتزاز
         function updateThemeUI(theme) {
             if (theme === 'dark') {
                 icon.className = 'fa-solid fa-sun';
