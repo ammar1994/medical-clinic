@@ -3,103 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عيادة الدكتور محمود رأفت | الخدمات الطبية</title>
+    <title>عيادة الدكتور محمود رأفت | خدماتنا</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: system-ui, -apple-system, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.5; }
-        
-        /* الهيدر الموحد */
-        .navbar { background-color: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 12px 15px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e2e8f0; }
-        .nav-container { display: flex; flex-direction: column; gap: 10px; align-items: center; }
-        .logo-box { text-align: center; }
-        .logo-box h1 { font-size: 16px; color: #0f172a; font-weight: 800; }
-        .logo-box p { font-size: 11px; color: #0d9488; font-weight: 600; }
-        
-        .nav-links { display: flex; justify-content: center; gap: 6px; width: 100%; overflow-x: auto; white-space: nowrap; padding-bottom: 2px; }
-        .nav-links a { text-decoration: none; color: #64748b; font-size: 12px; font-weight: 700; padding: 6px 10px; border-radius: 6px; background-color: #f1f5f9; }
-        .nav-links a.active { color: #0d9488; background-color: #f0fdfa; border: 1px solid #ccfbf1; }
-        
-        .section-padding { padding: 30px 15px; max-width: 600px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 25px; }
-        .section-title h3 { font-size: 22px; color: #0f172a; font-weight: 800; }
-        .section-title p { font-size: 13px; color: #64748b; margin-top: 5px; }
-        
-        /* شبكة الخدمات التفاعلية مع الحركات */
-        .cards-grid { display: flex; flex-direction: column; gap: 15px; }
-        .card { background-color: #ffffff; padding: 25px; border-radius: 18px; border: 1px solid #f1f5f9; text-align: right; box-shadow: 0 4px 6px rgba(0,0,0,0.01); transition: all 0.3s ease; }
-        
-        /* ميزة الحركة التفاعلية الفخمة */
-        .card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(13, 148, 136, 0.06); border-color: #ccfbf1; }
-        
-        .card-icon { width: 48px; height: 48px; background-color: #ccfbf1; color: #0d9488; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 15px; transition: 0.3s; }
-        .card:hover .card-icon { background-color: #0d9488; color: #ffffff; }
-        
-        .card h4 { font-size: 17px; color: #0f172a; font-weight: 700; margin-bottom: 8px; }
-        .card p { font-size: 13.5px; color: #64748b; text-align: justify; line-height: 1.6; }
-        
-        .footer { background-color: #0f172a; color: #94a3b8; text-align: center; padding: 20px; font-size: 11px; margin-top: 40px; }
+        /* أنماط الـ CSS الموحدة للناف بار والوضع الداكن المشترك */
+        :root { --bg-body: #fafafc; --bg-card: #ffffff; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; --nav-bg: #ffffff; --accent-color: #0d9488; --accent-bg: #f0fdfa; --accent-border: #ccfbf1; --btn-bg: #f1f5f9; --btn-hover: #e2e8f0; }
+        [data-theme="dark"] { --bg-body: #0f172a; --bg-card: #1e293b; --text-main: #fafafc; --text-muted: #94a3b8; --border-color: #334155; --nav-bg: #1e293b; --accent-color: #2dd4bf; --accent-bg: #0d94881a; --accent-border: #0d948833; --btn-bg: #334155; --btn-hover: #475569; }
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.2s, color 0.2s, border-color 0.2s; }
+        body { font-family: system-ui, -apple-system, sans-serif; background-color: var(--bg-body); color: var(--text-main); }
+        .navbar { background-color: var(--nav-bg); box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 14px 16px; }
+        .nav-header { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 600px; margin: 0 auto 12px auto; }
+        .logo-box { text-align: right; }
+        .logo-box h1 { font-size: 15px; color: var(--text-main); font-weight: 800; }
+        .logo-box p { font-size: 11px; color: var(--accent-color); font-weight: 600; margin-top: 2px; }
+        .theme-toggle { background: var(--btn-bg); border: 1px solid var(--border-color); color: var(--text-main); padding: 6px 12px; border-radius: 20px; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; }
+        .nav-links { display: flex; justify-content: space-between; align-items: center; gap: 6px; max-width: 600px; margin: 0 auto; background: var(--btn-bg); padding: 4px; border-radius: 10px; }
+        .nav-links a { flex: 1; text-align: center; text-decoration: none; color: var(--text-muted); font-size: 12px; font-weight: 700; padding: 8px 4px; border-radius: 8px; }
+        .nav-links a.active { color: var(--accent-color); background-color: var(--bg-card); box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+        .section-padding { padding: 30px 16px; max-width: 600px; margin: 0 auto; }
+        .service-card { background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 20px; border-radius: 14px; margin-bottom: 16px; text-align: right; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .service-card h3 { font-size: 15px; color: var(--accent-color); margin-bottom: 8px; font-weight: 800; }
+        .service-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+        footer { background-color: #0f172a; color: #94a3b8; text-align: center; padding: 20px; font-size: 11px; margin-top: 40px; }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-box">
-                <h1>د. محمود رأفت</h1>
-                <p>استشاري علاج العقم وأطفال الأنابيب</p>
-            </div>
-            <div class="nav-links">
-                <a href="./index.html">الرئيسية</a>
-                <a href="./services.html" class="active">الخدمات</a>
-                <a href="./gallery.html">المعرض</a>
-                <a href="./success.html">النجاح</a>
-            </div>
+        <div class="nav-header">
+            <div class="logo-box"><h1>عيادة الدكتور محمود رأفت</h1><p>استشاري علاج العقم وأطفال الأنابيب</p></div>
+            <button class="theme-toggle" id="themeBtn"><i class="fa-solid fa-moon"></i><span id="themeText">الوضع الداكن</span></button>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">الرئيسية</a>
+            <a href="services.html" class="active">خدماتنا</a>
+            <a href="gallery.html">المعرض</a>
+            <a href="success.html">النجاح</a>
         </div>
     </nav>
-    
+
     <section class="section-padding">
-        <div class="section-title">
-            <h3>تخصصاتنا والحلول العلاجية</h3>
-            <p>نوفر باقة شاملة من الخدمات والمختبرات المتطورة بأعلى معايير الأمان الطبي</p>
+        <div class="service-card">
+            <h3>الحقن المجهري (ICSI)</h3>
+            <p>أحدث التقنيات الطبية المستخدمة للمساعدة على الإنجاب وعلاج حالات العقم المستعصية بدقة وأمان عالٍ.</p>
         </div>
-        
-        <div class="cards-grid">
-            <!-- خدمة 1 -->
-            <div class="card">
-                <div class="card-icon">🔬</div>
-                <h4>الحقن المجهري (ICSI)</h4>
-                <p>عزل الحيوانات المنوية فائقة الجودة وحقنها مباشرة داخل البويضات باستخدام أنظمة مجهرية إلكترونية دقيقة متصلة بحواسب آلية لرفع كفاءة ونسب التلقيح المباشر.</p>
-            </div>
-            
-            <!-- خدمة 2 -->
-            <div class="card">
-                <div class="card-icon">🩺</div>
-                <h4>تشخيص واستشارات تأخر الإنجاب</h4>
-                <p>إجراء مسوحات وفحوصات هرمونية شاملة وهيكلية للزوجين لتحديد الأسباب الدقيقة الخفية وراء تأخر الحمل وبناء بروتوكول علاجي ذكي مخصص لكل زوجين.</p>
-            </div>
-            
-            <!-- خدمة 3 -->
-            <div class="card">
-                <div class="card-icon">🧬</div>
-                <h4>الفحص الجيني المبكر للأجنة (PGD/PGS)</h4>
-                <p>سحب خزعة خلوية آمنة تماماً من جدار الأجنة في اليوم الخامس لفحص سلامة الكروموسومات واستبعاد الأمراض الوراثية وتجنب حالات الإجهاض المتكرر.</p>
-            </div>
-            
-            <!-- خدمة 4 -->
-            <div class="card">
-                <div class="card-icon">❄️</div>
-                <h4>تقنية تجميد الأجنة والبويضات</h4>
-                <p>حفظ الأجنة والبويضات والحيوانات المنوية فائقة الجودة بتقنيات التبريد السريع (Vitrifaction) لسنوات طويلة مع الحفاظ التام على حيويتها وسلامتها الطبية.</p>
-            </div>
-            
-            <!-- خدمة 5 -->
-            <div class="card">
-                <div class="card-icon">💊</div>
-                <h4>تحفيز وتنشيط الإباضة الموجه</h4>
-                <p>بناء برامج دوائية وهرمونية مدروسة بدقة لتحفيز نمو البويضات ومتابعتها عبر الموجات فوق الصوتية المتقدمة لتحديد الوقت المثالي للإخصاب الطبيعي أو المساعد.</p>
-            </div>
+        <div class="service-card">
+            <h3>أطفال الأنابيب (IVF)</h3>
+            <p>رعاية طبية متكاملة ومتابعة دقيقة لخطوات التبويض والإخصاب لزيادة فرص النجاح وتوليد الأجنة.</p>
+        </div>
+        <div class="service-card">
+            <h3>تحديد جنس المولود</h3>
+            <p>فحص متطور يتم داخل مختبر الأجنة لفحص الكروموسومات وتحديد نوع الجنين بدقة متناهية قبل الإرجاع.</p>
         </div>
     </section>
-    
-    <footer class="footer"><p>عيادة الدكتور محمود رأفت © 2026</p></footer>
+
+    <footer><p>&copy; عيادة الدكتور محمود رأفت. جميع الحقوق محفوظة 2026</p></footer>
+
+    <script>
+        const themeBtn = document.getElementById('themeBtn'); const icon = themeBtn.querySelector('i'); const themeText = document.getElementById('themeText');
+        const currentTheme = localStorage.getItem('theme') || 'light'; document.documentElement.setAttribute('data-theme', currentTheme); updateThemeUI(currentTheme);
+        themeBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', theme); localStorage.setItem('theme', theme); updateThemeUI(theme);
+        });
+        function updateThemeUI(theme) {
+            icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            themeText.textContent = theme === 'dark' ? 'الوضع الفاتح' : 'الوضع الداكن';
+        }
+    </script>
 </body>
 </html>
