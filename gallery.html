@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيادة الدكتور محمود رأفت | المعرض</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: system-ui, -apple-system, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.5; }
+        
+        .navbar { background-color: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 12px 15px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e2e8f0; }
+        .nav-container { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+        .logo-box { text-align: center; }
+        .logo-box h1 { font-size: 16px; color: #0f172a; font-weight: 800; }
+        .logo-box p { font-size: 11px; color: #0d9488; font-weight: 600; }
+        
+        .nav-links { display: flex; justify-content: center; gap: 6px; width: 100%; overflow-x: auto; white-space: nowrap; padding-bottom: 2px; }
+        .nav-links a { text-decoration: none; color: #64748b; font-size: 12px; font-weight: 700; padding: 6px 10px; border-radius: 6px; background-color: #f1f5f9; }
+        .nav-links a.active { color: #0d9488; background-color: #f0fdfa; border: 1px solid #ccfbf1; }
+        
+        .section-padding { padding: 30px 15px; max-width: 600px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 25px; }
+        .section-title h3 { font-size: 20px; color: #0f172a; font-weight: 800; }
+        
+        .gallery-grid { display: flex; flex-direction: column; gap: 20px; }
+        .gallery-item { background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; display: flex; flex-direction: column; }
+        .image-container { width: 100%; height: 160px; background: linear-gradient(135deg, #0d9488 0%, #115e59 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+        .image-container::before { content: "🏥"; font-size: 40px; position: absolute; z-index: 1; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; position: relative; z-index: 2; border: none; }
+        .gallery-caption { padding: 12px 15px; font-size: 13.5px; font-weight: 700; color: #0f172a; text-align: right; background-color: #ffffff; border-top: 1px solid #f1f5f9; position: relative; z-index: 3; }
+        .footer { background-color: #0f172a; color: #94a3b8; text-align: center; padding: 20px; font-size: 11px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-box">
+                <h1>د. محمود رأفت</h1>
+                <p>استشاري علاج العقم وأطفال الأنابيب</p>
+            </div>
+            <div class="nav-links">
+                <a href="./index.html">الرئيسية</a>
+                <a href="./services.html">الخدمات</a>
+                <a href="./gallery.html" class="active">المعرض</a>
+                <a href="./success.html">النجاح</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="section-padding">
+        <div class="section-title"><h3>جولة داخل العيادة</h3></div>
+        <div class="gallery-grid">
+            
+            <!-- كرت 1 (تم إزالة كلمة المريحة من النص السفلي بناءً على طلبك) -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="./images/img1.jpg" alt="غرفة الاستقبال" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-caption">غرفة الاستقبال والانتظار</div>
+            </div>
+            
+            <!-- كرت 2 -->
+            <div class="gallery-item">
+                <div class="image-container" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+                    <img src="./images/img3.jpg" alt="مختبر الأجنة" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-caption">مختبر الأجنة المجهز بأحدث المجاهر الطبية</div>
+            </div>
+            
+            <!-- كرت 3 -->
+            <div class="gallery-item">
+                <div class="image-container" style="background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);">
+                    <img src="./images/img2.jpg" alt="غرفة الفحص" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-caption">غرفة الفحص والاستشارة الطبية الخاصة</div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <footer class="footer"><p>عيادة الدكتور محمود رأفت © 2026</p></footer>
+</body>
+</html>
