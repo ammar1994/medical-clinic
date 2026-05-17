@@ -3,189 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عيادة الدكتور محمود رأفت | الرئيسية</title>
+    <title>عيادة الدكتور محمود رأفت | المعرض</title>
+    <!-- استدعاء أيقونات Font Awesome لجدول المواعيد والاتصال زر التبديل -->
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        body { font-family: system-ui, -apple-system, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.5; }
+        /* تعريف متغيرات الألوان لتسهيل التبديل بين الوضعين */
+        :root {
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --nav-bg: #ffffff;
+            --accent-color: #0d9488;
+            --accent-bg: #f0fdfa;
+            --accent-border: #ccfbf1;
+            --btn-bg: #f1f5f9;
+            --btn-hover: #e2e8f0;
+        }
+
+        /* ألوان الوضع الغامق */
+        [data-theme="dark"] {
+            --bg-body: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --nav-bg: #1e293b;
+            --accent-color: #2dd4bf;
+            --accent-bg: #0d94881a;
+            --accent-border: #0d948833;
+            --btn-bg: #334155;
+            --btn-hover: #475569;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
+        body { font-family: system-ui, -apple-system, sans-serif; background-color: var(--bg-body); color: var(--text-muted); line-height: 1.6; }
         
         /* شريط التنقل */
-        .navbar { background-color: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 12px 15px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e2e8f0; }
-        .nav-container { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+        .navbar { background-color: var(--nav-bg); box-shadow: 0 2px 4px rgba(0,0,0,0.04); padding: 12px 16px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); }
+        .nav-container { display: flex; flex-direction: column; gap: 10px; align-items: center; position: relative; }
         .logo-box { text-align: center; }
-        .logo-box h1 { font-size: 16px; color: #0f172a; font-weight: 800; }
-        .logo-box p { font-size: 11px; color: #0d9488; font-weight: 600; }
+        .logo-box h1 { font-size: 18px; color: var(--text-main); font-weight: 800; }
+        .logo-box p { font-size: 11px; color: var(--accent-color); font-weight: 600; }
         
-        .nav-links { display: flex; justify-content: center; gap: 6px; width: 100%; overflow-x: auto; white-space: nowrap; padding-bottom: 2px; }
-        .nav-links a { text-decoration: none; color: #64748b; font-size: 12px; font-weight: 700; padding: 6px 10px; border-radius: 6px; background-color: #f1f5f9; }
-        .nav-links a.active { color: #0d9488; background-color: #f0fdfa; border: 1px solid #ccfbf1; }
+        .nav-links { display: flex; justify-content: center; gap: 8px; width: 100%; overflow-x: auto; white-space: nowrap; padding: 4px 0; }
+        .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 6px; }
+        .nav-links a.active { color: var(--accent-color); background-color: var(--accent-bg); border: 1px solid var(--accent-border); }
         
-        /* الواجهة الرئيسية */
-        .hero { background: linear-gradient(135deg, #0f172a 0%, #115e59 100%); color: #ffffff; padding: 40px 15px; text-align: center; }
-        .badge { background-color: rgba(20, 184, 166, 0.2); color: #2dd4bf; font-size: 11px; font-weight: bold; padding: 4px 12px; border-radius: 50px; display: inline-block; margin-bottom: 12px; }
-        .hero h2 { font-size: 22px; font-weight: 800; margin-bottom: 12px; }
-        .hero h2 span { color: #2dd4bf; }
-        .hero p { font-size: 13px; color: #cbd5e1; max-w: 400px; margin: 0 auto; }
+        /* زر تبديل الوضع (ثابت أعلى اليسار في القائمة) */
+        .theme-toggle { position: absolute; left: 0; top: 5px; background: var(--btn-bg); border: none; color: var(--text-main); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+        .theme-toggle:hover { background: var(--btn-hover); }
         
-        /* قسم تفاصيل العيادة */
-        .info-section { background-color: #ffffff; padding: 30px 15px; border-bottom: 1px solid #e2e8f0; text-align: center; }
-        .info-card { max-w: 400px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e2e8f0; padding: 22px; border-radius: 20px; text-align: right; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02); }
-        .info-item { display: flex; flex-direction: column; gap: 4px; margin-bottom: 18px; }
-        .info-item:last-child { margin-bottom: 0; border-top: 1px dashed #e2e8f0; padding-top: 15px; }
-        .info-label { font-size: 12px; font-weight: 800; color: #0d9488; display: flex; align-items: center; gap: 6px; }
-        .info-value { font-size: 13.5px; color: #1e293b; font-weight: 700; padding-right: 2px; }
-        .phone-link { color: #0d9488; text-decoration: none; border-bottom: 1px dashed #0d9488; }
-        
-        /* قسم حجز المواعيد */
-        .booking-section { padding: 30px 15px; background-color: #f0fdfa; border-bottom: 1px solid #ccfbf1; }
-        .booking-card { background-color: #ffffff; padding: 20px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border: 1px solid #ccfbf1; max-w: 400px; margin: 0 auto; }
-        .form-group { margin-bottom: 12px; text-align: right; }
-        .form-group label { font-size: 12px; font-weight: 700; color: #0f172a; display: block; margin-bottom: 4px; }
-        .form-input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1; outline: none; background-color: #f8fafc; font-size: 13px; }
-        
-        /* تصميم زر الإرسال الحقيقي للواتساب */
-        .btn-submit { width: 100%; background-color: #25d366; color: #ffffff; border: none; padding: 13px; font-size: 13.5px; font-weight: bold; border-radius: 10px; cursor: pointer; margin-top: 10px; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); transition: 0.2s; text-align: center; }
-        .btn-submit:hover { background-color: #20ba56; }
-        
-        /* قسم الأسئلة الشائعة */
-        .section-padding { padding: 40px 15px; max-width: 500px; margin: 0 auto; }
+        /* التنسيقات العامة للمحتوى */
+        .section-padding { padding: 30px 16px; max-width: 600px; margin: 0 auto; }
         .section-title { text-align: center; margin-bottom: 25px; }
-        .section-title h3 { font-size: 20px; color: #0f172a; font-weight: 800; }
-        .section-title p { font-size: 13px; color: #64748b; margin-top: 5px; }
-        .faq-grid { display: flex; flex-direction: column; gap: 12px; }
-        .faq-item { background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; text-align: right; cursor: pointer; }
-        .faq-question { font-size: 14px; font-weight: 700; color: #0f172a; display: flex; justify-content: space-between; align-items: center; }
-        .faq-question::after { content: "▼"; font-size: 10px; color: #0d9488; }
-        .faq-answer { font-size: 13px; color: #64748b; margin-top: 8px; display: none; line-height: 1.6; border-top: 1px solid #f1f5f9; padding-top: 8px; }
-        .hidden-faq { display: none; }
-        .btn-more-container { text-align: center; margin-top: 15px; }
-        .btn-more-faq { background-color: #ffffff; color: #0d9488; border: 1.5px solid #0d9488; padding: 8px 20px; font-size: 12.5px; font-weight: bold; border-radius: 50px; cursor: pointer; }
+        .section-title h3 { font-size: 20px; color: var(--text-main); font-weight: 800; position: relative; display: inline-block; padding-bottom: 8px; }
+        .section-title h3::after { content: ''; position: absolute; bottom: 0; right: 25%; width: 50%; height: 3px; background-color: var(--accent-color); border-radius: 2px; }
         
-        .footer { background-color: #0f172a; color: #94a3b8; text-align: center; padding: 20px; font-size: 11px; }
+        /* شبكة معرض الصور */
+        .gallery-grid { display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px; }
+        .gallery-item { background-color: var(--bg-card); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.02); border: 1px solid var(--border-color); }
+        .image-container { width: 100%; height: 180px; position: relative; background: var(--border-color); }
+        .image-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .gallery-caption { padding: 12px 16px; font-size: 13px; font-weight: 700; color: var(--text-main); text-align: right; }
+        
+        /* كروت المواعيد والاتصال */
+        .info-card { background-color: var(--bg-card); border-radius: 16px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); border: 1px solid var(--border-color); margin-bottom: 25px; }
+        .info-card h4 { color: var(--text-main); font-size: 16px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .info-card h4 i { color: var(--accent-color); }
+        .time-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed var(--border-color); font-size: 13px; }
+        .time-row:last-child { border-bottom: none; }
+        .day { font-weight: 700; color: var(--text-main); }
+        .hours { color: var(--accent-color); font-weight: 600; }
+        
+        .contact-links { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+        .contact-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background-color: var(--btn-bg); color: var(--text-main); text-decoration: none; padding: 12px; border-radius: 10px; font-size: 14px; font-weight: 700; }
+        .contact-btn:hover { background-color: var(--btn-hover); }
+        .contact-btn.maps-btn { background-color: var(--accent-bg); color: var(--accent-color); border: 1px solid var(--accent-border); }
+        
+        footer { background-color: #0f172a; color: #94a3b8; text-align: center; padding: 20px; font-size: 11px; margin-top: 40px; }
+        [data-theme="dark"] footer { border-top: 1px solid var(--border-color); }
     </style>
 </head>
 <body>
+
     <nav class="navbar">
         <div class="nav-container">
+            <button class="theme-toggle" id="themeBtn" aria-label="تبديل المظهر">
+                <i class="fa-solid fa-moon"></i>
+            </button>
             <div class="logo-box">
                 <h1>د. محمود رأفت</h1>
                 <p>استشاري علاج العقم وأطفال الأنابيب</p>
             </div>
+            
             <div class="nav-links">
-                <a href="./index.html" class="active">الرئيسية</a>
+                <a href="./index.html">الرئيسية</a>
                 <a href="./services.html">الخدمات</a>
-                <a href="./gallery.html">المعرض</a>
+                <a href="./gallery.html" class="active">المعرض</a>
                 <a href="./success.html">النجاح</a>
             </div>
         </div>
     </nav>
-    
-    <section class="hero">
-        <span class="badge">أحدث التقنيات الطبية العالمية</span>
-        <h2>نعيد صياغة الأمل <br><span>لتحقيق حلم الأمومة</span></h2>
-        <p>رعاية طبية متكاملة بخصوصية تامة، نرافقكم خطوة بخطوة لضمان أعلى نسب النجاح.</p>
-    </section>
 
-    <section class="info-section">
-        <div class="info-card">
-            <div class="info-item">
-                <span class="info-label">📍 مقر العيادة:</span>
-                <span class="info-value">الرياض، طريق الملك فهد، حي الصحافة، برج الميزان الطبي، الطابق الرابع، عيادة رقم 402.</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">📞 رقم الجوال والتواصل المباشر:</span>
-                <span class="info-value"><a href="tel:+963934700935" class="phone-link">0934700935</a></span>
-            </div>
-        </div>
-    </section>
-
-    <!-- نموذج حجز المواعيد المتصل بالواتساب أونلاين -->
-    <section class="booking-section">
-        <div class="booking-card">
-            <h3 style="margin-bottom: 15px; color:#0f172a; font-size:15px; text-align:center;">طلب استشارة طبية سريعة</h3>
-            <form onsubmit="sendRealBooking(event)">
-                <div class="form-group">
-                    <label>الاسم الكامل للمراجع</label>
-                    <input type="text" id="patientName" class="form-input" placeholder="أدخل اسمك الثلاثي" required>
-                </div>
-                <div class="form-group">
-                    <label>رقم الجوال لتأكيد الموعد</label>
-                    <input type="tel" id="patientPhone" class="form-input" placeholder="05xxxxxxxx" required>
-                </div>
-                <div class="form-group">
-                    <label>نوع الخدمة المطلوبة</label>
-                    <select id="medicalService" class="form-input" required>
-                        <option value="">اختر الخدمة الطبية</option>
-                        <option value="استشارة حقن مجهري (ICSI)">استشارة حقن مجهري (ICSI)</option>
-                        <option value="تشخيص تأخر الإنجاب">تشخيص وعلاج تأخر الإنجاب</option>
-                        <option value="الفحص الجيني المبكر للأجنة">الفحص الجيني المبكر للأجنة</option>
-                        <option value="تقنية تجميد الأجنة والبويضات">تقنية تجميد الأجنة والبويضات</option>
-                    </select>
-                </div>
-                <button type="submit" class="w-full btn-submit">تأكيد وإرسال الحجز عبر الواتساب 💬</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- قسم الأسئلة الشائعة -->
     <section class="section-padding">
-        <div class="section-title">
-            <h3>الأسئلة الطبية الشائعة</h3>
-            <p>إجابات مبسطة وسريعة حول أكثر التساؤلات انتشاراً</p>
+        <div class="section-title"><h3>جولة داخل العيادة</h3></div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="img1.jpg" alt="غرفة الاستقبال والانتظار" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-caption">غرفة الاستقبال والانتظار</div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="img3.jpg" alt="مختبر الأجنة المجهز بأحدث المجاهر الطبية" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-caption">مختبر الأجنة المجهز بأحدث المجاهر الطبية</div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="img2.jpg" alt="غرفة الفحص والاستشارة الطبية الخاصة" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-caption">غرفة الفحص والاستشارة الطبية الخاصة</div>
+            </div>
         </div>
-        <div class="faq-grid">
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">ما هي نسبة نجاح عملية الحقن المجهري بالعيادة؟</div>
-                <div class="faq-answer">تختلف نسب النجاح حسب عمر الزوجين وسبب تأخر الإنجاب، ولكننا نحقق نسب نجاح عالية جداً تتماشى مع المعايير الطبية العالمية بفضل أحدث التقنيات.</div>
+
+        <div class="info-card">
+            <h4><i class="fa-regular fa-clock"></i> مواعيد العمل بالعيادة</h4>
+            <div class="time-row">
+                <span class="day">من السبت إلى الأربعاء</span>
+                <span class="hours">04:00 مساءً - 09:00 مساءً</span>
             </div>
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">هل تقنية الفحص الجيني تؤثر على سلامة الجنين؟</div>
-                <div class="faq-answer">لا مطلقاً، يتم أخذ خزعة بسيطة جداً من جدار الجنين الخارجي في اليوم الخامس وهي تقنية آمنة تماماً وتضمن نقل الأجنة السليمة فقط.</div>
-            </div>
-            <div class="faq-item hidden-faq" onclick="toggleFaq(this)">
-                <div class="faq-question">كم تستغرق فترة التحضير لبدء برنامج الحقن المجهري؟</div>
-                <div class="faq-answer">تستغرق فترة التحضير وفحوصات السلامة الأولية بين أسبوعين إلى 3 أسابيع، حيث يتم دراسة الملف الهرموني بالكامل لضمان اختيار البروتوكول العلاجي المناسب.</div>
-            </div>
-            <div class="faq-item hidden-faq" onclick="toggleFaq(this)">
-                <div class="faq-question">هل يتطلب العلاج البقاء والتنويم داخل المستشفى؟</div>
-                <div class="faq-answer">لا، كافة الإجراءات هي عمليات يومية بسيطة تستغرق دقائق خفيفة، وتستطيع المراجعة الخروج وممارسة حياتها الطبيعية في نفس اليوم.</div>
+            <div class="time-row">
+                <span class="day">الخميس والجمعة</span>
+                <span class="hours">مغلق</span>
             </div>
         </div>
-        <div class="btn-more-container">
-            <button id="moreFaqBtn" class="btn-more-faq" onclick="showMoreFaqs()">عرض المزيد من الأسئلة الطبية ➕</button>
+
+        <div class="info-card">
+            <h4><i class="fa-solid fa-location-dot"></i> الموقع والاتصال</h4>
+            <p style="font-size: 13px; margin-bottom: 10px;">العنوان: مقر العيادة الرئيسي، وسط المدينة</p>
+            <div class="contact-links">
+                <a href="tel:0123456789" class="contact-btn">
+                    <i class="fa-solid fa-phone"></i> الاتصال بالعيادة: 0123456789
+                </a>
+                <a href="https://google.com" target="_blank" class="contact-btn maps-btn">
+                    <i class="fa-solid fa-map-location-dot"></i> فتح موقع العيادة على الخريطة
+                </a>
+            </div>
         </div>
     </section>
 
-    <footer class="footer"><p>عيادة الدكتور محمود رأفت © 2026</p></footer>
+    <footer><p>&copy; 2026 عيادة الدكتور محمود رأفت. جميع الحقوق محفوظة.</p></footer>
 
+    <!-- سكربت ذكي لحفظ اختيار المستخدم للوضع وتغيير الأيقونة تلقائياً -->
     <script>
-        function toggleFaq(element) {
-            var answer = element.querySelector('.faq-answer');
-            answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
-        }
+        const themeBtn = document.getElementById('themeBtn');
+        const icon = themeBtn.querySelector('i');
         
-        function showMoreFaqs() {
-            var hiddenItems = document.querySelectorAll('.hidden-faq');
-            hiddenItems.forEach(function(item) { item.style.display = 'block'; });
-            document.getElementById('moreFaqBtn').style.display = 'none';
-        }
+        // التحقق من الثيم المحفوظ سابقاً في المتصفح
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateIcon(currentTheme);
 
-        // دالة الإرسال الحاسمة والمعدلة بالبروتوكول الداخلي للجوال
-        function sendRealBooking(event) {
-            event.preventDefault(); 
-            var name = document.getElementById('patientName').value.trim();
-            var phone = document.getElementById('patientPhone').value.trim();
-            var service = document.getElementById('medicalService').value;
-            
-            var myPersonalPhone = "963934700935"; 
-            
-            var message = "السلام عليكم ورحمة الله وبركاته، تم استقبال حجز موعد جديد في العيادة الطبية:\n\n" +
-                          "📝 *اسم المراجع الحاجز:* " + name + "\n" +
-                          "📞 *رقم جوال العميل:* " + phone + "\n" +
-                          "🔬 *نوع الاستشارة المطلوبة:* " + service;
-            
-            // 🔥 التعديل الجذري: استخدام الرابط الداخلي المجبر للنظام لفتح التطبيق الأخضر مباشرة دون صفحات ويب
-            var realWhatsappUrl = "whatsapp://send?phone=" + myPersonalPhone + "&text=" + encodeURIComponent(message);
-            window.location.href = realWhatsappUrl;
+        themeBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'dark') {
+                theme = 'light';
+            } else {
+                theme = 'dark';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            updateIcon(theme);
+        });
+
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                icon.className = 'fa-solid fa-sun';
+            } else {
+                icon.className = 'fa-solid fa-moon';
+            }
         }
     </script>
 </body>
