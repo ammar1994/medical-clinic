@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عيادة الدكتور محمود رأفت | الرئيسية</title>
-    <!-- تحميل أيقونات Font Awesome لاستخدام أيقونات السوشيال ميديا والوضع الليلي -->
+    <!-- تحميل أيقونات Font Awesome -->
     <link rel="stylesheet" href="https://cloudflare.com">
     
     <style>
@@ -42,7 +42,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
         }
 
         body {
@@ -51,84 +51,87 @@
             color: var(--text-main);
         }
 
-        /* شريط التنقل */
+        /* إعادة تصميم شريط التنقل الاحترافي لمنع التداخل */
         .navbar {
             background-color: var(--nav-bg);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-            padding: 12px 16px;
-            position: relative;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 14px 16px;
         }
 
-        .nav-container {
+        .nav-header {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            justify-content: space-between;
             align-items: center;
-            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 12px auto;
         }
 
         .logo-box {
-            text-align: center;
+            text-align: right;
         }
 
         .logo-box h1 {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--text-main);
             font-weight: 800;
         }
 
         .logo-box p {
             font-size: 11px;
-            color: #0d9488;
+            color: var(--accent-color);
             font-weight: 600;
+            margin-top: 2px;
         }
 
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            align-content: center;
-            width: 100%;
-            overflow-x: auto;
-            white-space: nowrap;
-            padding-bottom: 2px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #64748b;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 6px 10px;
-            border-radius: 6px;
-            background-color: #f1f5f9;
-        }
-
-        .nav-links a.active {
-            color: #0d9488;
-            background-color: #f0fdfa;
-            border: 1px solid #ccfbf1;
-        }
-
-        /* زر تبديل الوضع مع العبارة التوضيحية وبدون أي اهتزاز */
+        /* زر تبديل الوضع الاحترافي الجديد بجانب الشعار */
         .theme-toggle {
-            position: absolute;
-            left: 0;
-            top: 5px;
             background: var(--btn-bg);
-            border: none;
+            border: 1px solid var(--border-color);
             color: var(--text-main);
-            padding: 6px 10px;
-            border-radius: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 6px;
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
         .theme-toggle:hover {
             background: var(--btn-hover);
+        }
+
+        /* أزرار التنقل الأفقية المتناسقة والمريحة للعين */
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 6px;
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--btn-bg);
+            padding: 4px;
+            border-radius: 10px;
+        }
+
+        .nav-links a {
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 4px;
+            border-radius: 8px;
+        }
+
+        .nav-links a.active {
+            color: var(--accent-color);
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
         }
 
         /* البانر الرئيسي للترحيب */
@@ -271,7 +274,6 @@
             border-color: #475569;
         }
 
-        /* زر الإرسال المباشر للواتساب المستقر وبدون اهتزاز */
         .submit-btn {
             width: 100%;
             background-color: #10b981;
@@ -304,22 +306,23 @@
 </head>
 <body>
 
+    <!-- شريط التنقل الجديد كلياً والمنسق بشكل رائع للهاتف -->
     <nav class="navbar">
-        <div class="nav-container">
-            <button class="theme-toggle" id="themeBtn" aria-label="تبديل المظهر">
-                <i class="fa-solid fa-moon"></i>
-                <span id="themeText">الوضع الداكن</span>
-            </button>
+        <div class="nav-header">
             <div class="logo-box">
                 <h1>عيادة الدكتور محمود رأفت</h1>
                 <p>استشاري علاج العقم وأطفال الأنابيب</p>
             </div>
-            <div class="nav-links">
-                <a href="index.html" class="active">الرئيسية</a>
-                <a href="services.html">خدماتنا</a>
-                <a href="gallery.html">المعرض</a>
-                <a href="success.html">النجاح</a>
-            </div>
+            <button class="theme-toggle" id="themeBtn" aria-label="تبديل المظهر">
+                <i class="fa-solid fa-moon"></i>
+                <span id="themeText">الوضع الداكن</span>
+            </button>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active">الرئيسية</a>
+            <a href="services.html">خدماتنا</a>
+            <a href="gallery.html">المعرض</a>
+            <a href="success.html">النجاح</a>
         </div>
     </nav>
 
@@ -357,7 +360,6 @@
                 <label>رقم الهاتف</label>
                 <input type="tel" id="clientPhone" class="form-input" placeholder="01xxxxxxxxx">
             </div>
-            <!-- مربع اختيار المجال الطبي المضاف والمنسق حديثاً -->
             <div class="form-group">
                 <label>المجال الطبي / الخدمة المطلوبة</label>
                 <select id="medicalService" class="form-select">
@@ -414,7 +416,6 @@
             }
         }
 
-        // كود فتح التطبيق مباشرة على الموبايل ونقل مدخلات الحجز الطبية وقائمة الخدمات المنسدلة
         document.getElementById('sendWhatsapp').addEventListener('click', () => {
             const name = document.getElementById('clientName').value.trim();
             const phone = document.getElementById('clientPhone').value.trim();
@@ -431,7 +432,6 @@
             }
             
             const text = encodeURIComponent(`السلام عليكم ورحمة الله وبركاته\nأود حجز موعد في العيادة:\n- الاسم: ${name}\n- الهاتف: ${phone}\n- الخدمة المطلوبة: ${service}\n- تفاصيل أخرى: ${msg}`);
-            // استخدام رابط الـ whatsapp:// المباشر لإجبار الهواتف على فتح تطبيق الواتساب فوراً
             window.location.href = `whatsapp://send?text=${text}`;
         });
     </script>
