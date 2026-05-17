@@ -33,150 +33,6 @@
         .info-item:last-child { margin-bottom: 0; border-top: 1px dashed #e2e8f0; padding-top: 15px; }
         .info-label { font-size: 12px; font-weight: 800; color: #0d9488; display: flex; align-items: center; gap: 6px; }
         .info-value { font-size: 13.5px; color: #1e293b; font-weight: 700; padding-right: 2px; }
-        
-        /* قسم حجز المواعيد */
-        .booking-section { padding: 30px 15px; background-color: #f0fdfa; border-bottom: 1px solid #ccfbf1; }
-        .booking-card { background-color: #ffffff; padding: 20px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border: 1px solid #ccfbf1; max-w: 400px; margin: 0 auto; }
-        .form-group { margin-bottom: 12px; text-align: right; }
-        .form-group label { font-size: 12px; font-weight: 700; color: #0f172a; display: block; margin-bottom: 4px; }
-        .form-input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1; outline: none; background-color: #f8fafc; font-size: 13px; }
-        
-        /* تصميم الزر المباشر المشحون برقمك الصريح لتجاوز الحظر */
-        .btn-submit { display: block; width: 100%; background-color: #25d366; color: #ffffff; border: none; padding: 13px; font-size: 13.5px; font-weight: bold; border-radius: 10px; cursor: pointer; margin-top: 15px; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); text-align: center; text-decoration: none; }
-        .btn-submit:hover { background-color: #20ba56; }
-        
-        /* قسم الأسئلة الشائعة */
-        .section-padding { padding: 40px 15px; max-width: 500px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 25px; }
-        .section-title h3 { font-size: 20px; color: #0f172a; font-weight: 800; }
-        .section-title p { font-size: 13px; color: #64748b; margin-top: 5px; }
-        .faq-grid { display: flex; flex-direction: column; gap: 12px; }
-        .faq-item { background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; text-align: right; cursor: pointer; }
-        .faq-question { font-size: 14px; font-weight: 700; color: #0f172a; display: flex; justify-content: space-between; align-items: center; }
-        .faq-question::after { content: "▼"; font-size: 10px; color: #0d9488; }
-        .faq-answer { font-size: 13px; color: #64748b; margin-top: 8px; display: none; line-height: 1.6; border-top: 1px solid #f1f5f9; padding-top: 8px; }
-        .hidden-faq { display: none; }
-        .btn-more-container { text-align: center; margin-top: 15px; }
-        .btn-more-faq { background-color: #ffffff; color: #0d9488; border: 1.5px solid #0d9488; padding: 8px 20px; font-size: 12.5px; font-weight: bold; border-radius: 50px; cursor: pointer; }
-        
-        .footer { background-color: #0f172a; color: #94a3b8; text-align: center; padding: 20px; font-size: 11px; }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-box">
-                <h1>د. محمود رأفت</h1>
-                <p>استشاري علاج العقم وأطفال الأنابيب</p>
-            </div>
-            <div class="nav-links">
-                <a href="./index.html" class="active">الرئيسية</a>
-                <a href="./services.html">الخدمات</a>
-                <a href="./gallery.html">المعرض</a>
-                <a href="./success.html">النجاح</a>
-            </div>
-        </div>
-    </nav>
-    
-    <section class="hero">
-        <span class="badge">أحدث التقنيات الطبية العالمية</span>
-        <h2>نعيد صياغة الأمل <br><span>لتحقيق حلم الأمومة</span></h2>
-        <p>رعاية طبية متكاملة بخصوصية تامة، نرافقكم خطوة بخطوة لضمان أعلى نسب النجاح.</p>
-    </section>
-
-    <section class="info-section">
-        <div class="info-card">
-            <div class="info-item">
-                <span class="info-label">📍 مقر العيادة:</span>
-                <span class="info-value">الرياض، طريق الملك فهد، حي الصحافة، برج الميزان الطبي، الطابق الرابع، عيادة رقم 402.</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">📞 رقم الجوال والتواصل المباشر:</span>
-                <span class="info-value">0501234567</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- نموذج الحجز المتصل بالواتساب المباشر بطريقة التحديث الفوري الصريح -->
-    <section id="book" class="booking-section">
-        <div class="booking-card">
-            <h3 style="margin-bottom: 15px; color:#0f172a; font-size:15px; text-align:center;">طلب استشارة طبية سريعة</h3>
-            <form onsubmit="return false;">
-                <div class="form-group">
-                    <label>الاسم الكامل للمراجع</label>
-                    <input type="text" id="patientName" class="form-input" placeholder="اسمك الثلاثي" oninput="buildWhatsappMessage()" required>
-                </div>
-                <div class="form-group">
-                    <label>رقم الجوال لتأكيد الموعد</label>
-                    <input type="tel" id="patientPhone" class="form-input" placeholder="05xxxxxxxx" oninput="buildWhatsappMessage()" required>
-                </div>
-                <div class="form-group">
-                    <label>نوع الخدمة المطلوبة</label>
-                    <select id="medicalService" class="form-input" onchange="buildWhatsappMessage()" required>
-                        <option value="">اختر الخدمة الطبية</option>
-                        <option value="استشارة حقن مجهري (ICSI)">استشارة حقن مجهري (ICSI)</option>
-                        <option value="تشخيص تأخر الإنجاب">تشخيص وعلاج تأخر الإنجاب</option>
-                        <option value="الفحص الجيني المبكر للأجنة">الفحص الجيني المبكر للأجنة</option>
-                        <option value="تقنية تجميد الأجنة والبويضات">تقنية تجميد الأجنة والبويضات</option>
-                    </select>
-                </div>
-                
-                <!-- وسم الرابط الصريح المشحون برقم السوري المباشر لتخطي أي حظر ومتصل بجهازك تلقائياً -->
-                <a id="directWhatsappBtn" href="https://whatsapp.com" target="_blank" class="btn-submit">
-                    تأكيد وإرسال الحجز عبر الواتساب 💬
-                </a>
-            </form>
-        </div>
-    </section>
-
-    <!-- قسم الأسئلة الشائعة -->
-    <section class="section-padding">
-        <div class="section-title">
-            <h3>الأسئلة الطبية الشائعة</h3>
-            <p>إجابات مبسطة وسريعة حول أكثر التساؤلات انتشاراً</p>
-        </div>
-        <div class="faq-grid">
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">ما هي نسبة نجاح عملية الحقن المجهري بالعيادة؟</div>
-                <div class="faq-answer">تختلف نسب النجاح حسب عمر الزوجين وسبب تأخر الإنجاب، ولكننا نحقق نسب نجاح عالية جداً تتماشى مع المعايير الطبية العالمية بفضل أحدث التقنيات.</div>
-            </div>
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">هل تقنية الفحص الجيني تؤثر على سلامة الجنين؟</div>
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عيادة الدكتور محمود رأفت | الرئيسية</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        body { font-family: system-ui, -apple-system, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.5; }
-        
-        /* شريط التنقل */
-        .navbar { background-color: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 12px 15px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e2e8f0; }
-        .nav-container { display: flex; flex-direction: column; gap: 10px; align-items: center; }
-        .logo-box { text-align: center; }
-        .logo-box h1 { font-size: 16px; color: #0f172a; font-weight: 800; }
-        .logo-box p { font-size: 11px; color: #0d9488; font-weight: 600; }
-        
-        .nav-links { display: flex; justify-content: center; gap: 6px; width: 100%; overflow-x: auto; white-space: nowrap; padding-bottom: 2px; }
-        .nav-links a { text-decoration: none; color: #64748b; font-size: 12px; font-weight: 700; padding: 6px 10px; border-radius: 6px; background-color: #f1f5f9; }
-        .nav-links a.active { color: #0d9488; background-color: #f0fdfa; border: 1px solid #ccfbf1; }
-        
-        /* الواجهة الرئيسية */
-        .hero { background: linear-gradient(135deg, #0f172a 0%, #115e59 100%); color: #ffffff; padding: 40px 15px; text-align: center; }
-        .badge { background-color: rgba(20, 184, 166, 0.2); color: #2dd4bf; font-size: 11px; font-weight: bold; padding: 4px 12px; border-radius: 50px; display: inline-block; margin-bottom: 12px; }
-        .hero h2 { font-size: 22px; font-weight: 800; margin-bottom: 12px; }
-        .hero h2 span { color: #2dd4bf; }
-        .hero p { font-size: 13px; color: #cbd5e1; max-w: 400px; margin: 0 auto; }
-        
-        /* قسم تفاصيل العيادة المطور */
-        .info-section { background-color: #ffffff; padding: 30px 15px; border-bottom: 1px solid #e2e8f0; text-align: center; }
-        .info-card { max-w: 400px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e2e8f0; padding: 22px; border-radius: 20px; text-align: right; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02); }
-        .info-item { display: flex; flex-direction: column; gap: 4px; margin-bottom: 18px; }
-        .info-item:last-child { margin-bottom: 0; border-top: 1px dashed #e2e8f0; padding-top: 15px; }
-        .info-label { font-size: 12px; font-weight: 800; color: #0d9488; display: flex; align-items: center; gap: 6px; }
-        .info-value { font-size: 13.5px; color: #1e293b; font-weight: 700; padding-right: 2px; }
         .phone-link { color: #0d9488; text-decoration: none; border-bottom: 1px dashed #0d9488; }
         
         /* قسم حجز المواعيد */
@@ -242,7 +98,7 @@
         </div>
     </section>
 
-    <!-- نموذج الحجز المتصل بالواتساب أونلاين -->
+    <!-- نموذج حجز المواعيد المتصل بالواتساب أونلاين -->
     <section class="booking-section">
         <div class="booking-card">
             <h3 style="margin-bottom: 15px; color:#0f172a; font-size:15px; text-align:center;">طلب استشارة طبية سريعة</h3>
@@ -313,7 +169,7 @@
             document.getElementById('moreFaqBtn').style.display = 'none';
         }
 
-        // دالة الإرسال الحقيقية أونلاين والمحدثة ببروتوكول wa.me المباشر
+        // دالة الإرسال الحاسمة والمعدلة بالبروتوكول الداخلي للجوال
         function sendRealBooking(event) {
             event.preventDefault(); 
             var name = document.getElementById('patientName').value.trim();
@@ -327,8 +183,8 @@
                           "📞 *رقم جوال العميل:* " + phone + "\n" +
                           "🔬 *نوع الاستشارة المطلوبة:* " + service;
             
-            // استخدام واجهة wa.me القياسية لكسر عناد وحظر المتصفحات للمزامنة الفورية مع التطبيق
-            var realWhatsappUrl = "https://wa.me" + myPersonalPhone + "?text=" + encodeURIComponent(message);
+            // 🔥 التعديل الجذري: استخدام الرابط الداخلي المجبر للنظام لفتح التطبيق الأخضر مباشرة دون صفحات ويب
+            var realWhatsappUrl = "whatsapp://send?phone=" + myPersonalPhone + "&text=" + encodeURIComponent(message);
             window.location.href = realWhatsappUrl;
         }
     </script>
