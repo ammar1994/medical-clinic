@@ -244,7 +244,7 @@
             margin-bottom: 4px;
         }
 
-        .form-input {
+        .form-input, .form-select {
             width: 100%;
             padding: 10px;
             border-radius: 8px;
@@ -253,9 +253,20 @@
             background-color: #f8fafc;
             font-size: 13px;
             color: var(--text-main);
+            font-family: inherit;
         }
 
-        [data-theme="dark"] .form-input {
+        .form-select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://w3.org' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 10px center;
+            background-size: 16px;
+            padding-left: 30px;
+        }
+
+        [data-theme="dark"] .form-input, [data-theme="dark"] .form-select {
             background-color: #334155;
             border-color: #475569;
         }
@@ -346,6 +357,18 @@
                 <label>رقم الهاتف</label>
                 <input type="tel" id="clientPhone" class="form-input" placeholder="01xxxxxxxxx">
             </div>
+            <!-- مربع اختيار المجال الطبي المضاف والمنسق حديثاً -->
+            <div class="form-group">
+                <label>المجال الطبي / الخدمة المطلوبة</label>
+                <select id="medicalService" class="form-select">
+                    <option value="" disabled selected>اختر الخدمة من هنا...</option>
+                    <option value="استشارة وعلاج العقم">استشارة وعلاج العقم</option>
+                    <option value="عملية أطفال الأنابيب (IVF)">عملية أطفال الأنابيب (IVF)</option>
+                    <option value="الحقن المجهري (ICSI)">الحقن المجهري (ICSI)</option>
+                    <option value="تحديد جنس المولود">تحديد جنس المولود</option>
+                    <option value="متابعة الحمل والتبويض">متابعة الحمل والتبويض</option>
+                </select>
+            </div>
             <div class="form-group">
                 <label>ملاحظات أو استفسار</label>
                 <input type="text" id="clientMsg" class="form-input" placeholder="اكتب استفسارك هنا">
@@ -391,20 +414,25 @@
             }
         }
 
-        // تم إصلاح كود إرسال البيانات بشكل مباشر ومستقر وصحيح
+        // كود فتح التطبيق مباشرة على الموبايل ونقل مدخلات الحجز الطبية وقائمة الخدمات المنسدلة
         document.getElementById('sendWhatsapp').addEventListener('click', () => {
             const name = document.getElementById('clientName').value.trim();
             const phone = document.getElementById('clientPhone').value.trim();
+            const service = document.getElementById('medicalService').value;
             const msg = document.getElementById('clientMsg').value.trim();
             
             if(!name || !phone){
                 alert('يرجى ملء خانة الاسم ورقم الهاتف لإتمام الحجز.');
                 return;
             }
+            if(!service){
+                alert('يرجى تحديد المجال الطبي أو الخدمة المطلوبة من القائمة المنسدلة.');
+                return;
+            }
             
-            // تم ضبط الرابط البرمجي ليفتح التطبيق فوراً بناءً على مدخلات المستخدم المكتوبة
-            const text = encodeURIComponent(`السلام عليكم ورحمة الله وبركاته\nأود حجز موعد في العيادة:\n- الاسم: ${name}\n- الهاتف: ${phone}\n- تفاصيل أخرى: ${msg}`);
-            window.open(`https://whatsapp.com{text}`, '_blank');
+            const text = encodeURIComponent(`السلام عليكم ورحمة الله وبركاته\nأود حجز موعد في العيادة:\n- الاسم: ${name}\n- الهاتف: ${phone}\n- الخدمة المطلوبة: ${service}\n- تفاصيل أخرى: ${msg}`);
+            // استخدام رابط الـ whatsapp:// المباشر لإجبار الهواتف على فتح تطبيق الواتساب فوراً
+            window.location.href = `whatsapp://send?text=${text}`;
         });
     </script>
 </body>
