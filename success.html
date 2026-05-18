@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عيادة الدكتور محمود رأفت | قصص النجاح</title>
-    <!-- تحميل أيقونات Font Awesome الاحترافية الرسمية -->
+    <!-- تحميل مكتبة الأيقونات العالمية لضمان ظهور النجوم والأشكال الطبية -->
     <link rel="stylesheet" href="https://cloudflare.com">
     
     <style>
-        /* تعريف متغيرات الألوان المتطابقة للوضعين الفاتح والمظلم */
         :root {
             --bg-body: #fafafc;
             --bg-card: #ffffff;
@@ -180,7 +179,7 @@
             gap: 12px;
         }
 
-        /* تصميم دائرة الأيقونة الطبية الرسمية */
+        /* إصلاح حجم وتوسيط الأيقونة الطبية الرسمية بداخل الدائرة */
         .medical-icon-box {
             width: 40px;
             height: 40px;
@@ -192,6 +191,7 @@
             align-items: center;
             justify-content: center;
             font-size: 16px;
+            flex-shrink: 0;
         }
 
         .user-info h4 {
@@ -207,9 +207,10 @@
             margin-top: 2px;
         }
 
+        /* النجوم الذهبية تظهر الآن بشكل صحيح وبدون اختفاء */
         .rating-stars {
-            color: #fbbf24;
-            font-size: 10px;
+            color: #fbbf24 !important;
+            font-size: 11px;
             display: flex;
             gap: 2px;
         }
@@ -317,7 +318,7 @@
             <div class="success-card">
                 <div class="card-header">
                     <div class="user-block">
-                        <div class="medical-icon-box"><i class="fa-solid fa-flask-vial"></i></div>
+                        <div class="medical-icon-box"><i class="fa-solid fa-baby"></i></div>
                         <div class="user-info">
                             <h4>أم أحمد</h4>
                             <p>نجاح عملية أطفال أنابيب • منذ شهر</p>
@@ -334,7 +335,7 @@
             <div class="success-card">
                 <div class="card-header">
                     <div class="user-block">
-                        <div class="medical-icon-box"><i class="fa-solid fa-hand-holding-medical"></i></div>
+                        <div class="medical-icon-box"><i class="fa-solid fa-user-doctor"></i></div>
                         <div class="user-info">
                             <h4>عائلة المستشار</h4>
                             <p>تحديد جنس المولود • منذ أسبوعين</p>
@@ -351,7 +352,7 @@
             <div class="success-card">
                 <div class="card-header">
                     <div class="user-block">
-                        <div class="medical-icon-box"><i class="fa-solid fa-stethoscope"></i></div>
+                        <div class="medical-icon-box"><i class="fa-solid fa-house-medical"></i></div>
                         <div class="user-info">
                             <h4>الأستاذ خالد وعائلته</h4>
                             <p>حمل بعد تنظير رحمي تشخيصي • منذ 6 أيام</p>
