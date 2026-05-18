@@ -3,119 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عيادة الدكتور محمود رأفت | قصص النجاح</title>
+    <title>عيادة الدكتور محمود رأفت | النجاح</title>
+    <!-- تحميل أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: system-ui, -apple-system, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.5; }
-        
-        /* الهيدر الموحد */
-        .navbar { background-color: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 12px 15px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e2e8f0; }
-        .nav-container { display: flex; flex-direction: column; gap: 10px; align-items: center; }
-        .logo-box { text-align: center; }
-        .logo-box h1 { font-size: 16px; color: #0f172a; font-weight: 800; }
-        .logo-box p { font-size: 11px; color: #0d9488; font-weight: 600; }
-        
-        .nav-links { display: flex; justify-content: center; gap: 6px; width: 100%; overflow-x: auto; white-space: nowrap; padding-bottom: 2px; }
-        .nav-links a { text-decoration: none; color: #64748b; font-size: 12px; font-weight: 700; padding: 6px 10px; border-radius: 6px; background-color: #f1f5f9; }
-        .nav-links a.active { color: #0d9488; background-color: #f0fdfa; border: 1px solid #ccfbf1; }
-        
-        .section-padding { padding: 30px 15px; max-width: 600px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 25px; }
-        .section-title h3 { font-size: 22px; color: #0f172a; font-weight: 800; }
-        .section-title p { font-size: 13px; color: #64748b; margin-top: 5px; }
-        
-        /* تصميم بطاقات قصص النجاح الفخمة */
-        .success-grid { display: flex; flex-direction: column; gap: 15px; }
-        .success-box { background-color: #ffffff; padding: 22px; border-radius: 18px; border: 1px solid #e2e8f0; text-align: right; box-shadow: 0 4px 10px rgba(0,0,0,0.01); transition: 0.3s; }
-        .success-box:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(13, 148, 136, 0.05); border-color: #ccfbf1; }
-        .success-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-        .success-avatar { width: 44px; height: 44px; background-color: #e0f2fe; border-radius: 50px; display: flex; align-items: center; justify-content: center; font-size: 18px; border: 2px solid #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .success-avatar.pink { background-color: #fce7f3; }
-        .success-meta h5 { font-size: 15px; color: #0f172a; font-weight: 800; }
-        .success-meta .date { font-size: 11px; color: #94a3b8; display: block; margin-top: 1px; }
-        
-        /* نجوم التقييم الذهبية المضافة */
-        .stars { color: #f59e0b; font-size: 13px; margin-bottom: 8px; display: flex; gap: 2px; }
-        .success-box p { font-size: 13.5px; color: #475569; text-align: justify; line-height: 1.6; }
-        
-        .footer { background-color: #0f172a; color: #94a3b8; text-align: center; padding: 20px; font-size: 11px; margin-top: 40px; }
+        /* تعريف متغيرات الألوان المتطابقة للوضعين */
+        :root {
+            --bg-body: #fafafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --nav-bg: #ffffff;
+            --accent-color: #0d9488;
+            --accent-bg: #f0fdfa;
+            --accent-border: #ccfbf1;
+            --btn-bg: #f1f5f9;
+            --btn-hover: #e2e8f0;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #fafafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --nav-bg: #1e293b;
+            --accent-color: #2dd4bf;
+            --accent-bg: #0d94881a;
+            --accent-border: #0d948833;
+            --btn-bg: #334155;
+            --btn-hover: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+        }
+
+        /* شريط التنقل الاحترافي الموحد المتناسق */
+        .navbar {
+            background-color: var(--nav-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 14px 16px;
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 12px auto;
+        }
+
+        .logo-box {
+            text-align: right;
+        }
+
+        .logo-box h1 {
+            font-size: 15px;
+            color: var(--text-main);
+            font-weight: 800;
+        }
+
+        .logo-box p {
+            font-size: 11px;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .theme-toggle {
+            background: var(--btn-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 6px;
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--btn-bg);
+            padding: 4px;
+            border-radius: 10px;
+        }
+
+        .nav-links a {
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 4px;
+            border-radius: 8px;
+        }
+
+        .nav-links a.active {
+            color: var(--accent-color);
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        /* تنسيقات كروت قصص النجاح المحدثة والعصرية */
+        .section-padding {
+            padding: 30px 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .section-title h3 {
+            font-size: 20px;
+            color: var(--text-main);
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .section-title p {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .success-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .success-card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .user-info h4 {
+            font-size: 14.5px;
+            color: var(--text-main);
+            font-weight: 800;
+        }
+
+        .user-info p {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .avatar-icon {
+            font-size: 24px;
+            color: #3b82f6;
+        }
+
+        .avatar-icon.pink {
+            color: #ec4899;
+        }
+
+        .rating-stars {
+            color: #fbbf24;
+            font-size: 11px;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 2px;
+        }
+
+        .success-text {
+            font-size: 13px;
+            color: var(--text-main);
+            line-height: 1.6;
+            font-weight: 600;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 20px;
+            font-size: 11px;
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body>
+
     <nav class="navbar">
-        <div class="nav-container">
+        <div class="nav-header">
             <div class="logo-box">
-                <h1>د. محمود رأفت</h1>
+                <h1>عيادة الدكتور محمود رأفت</h1>
                 <p>استشاري علاج العقم وأطفال الأنابيب</p>
             </div>
-            <div class="nav-links">
-                <a href="./index.html">الرئيسية</a>
-                <a href="./services.html">الخدمات</a>
-                <a href="./gallery.html">المعرض</a>
-                <a href="./success.html" class="active">النجاح</a>
-            </div>
+            <button class="theme-toggle" id="themeBtn" aria-label="تبديل المظهر">
+                <i class="fa-solid fa-moon"></i>
+                <span id="themeText">الوضع الداكن</span>
+            </button>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">الرئيسية</a>
+            <a href="services.html">خدماتنا</a>
+            <a href="gallery.html">المعرض</a>
+            <a href="success.html" class="active">النجاح</a>
         </div>
     </nav>
-    
+
     <section class="section-padding">
         <div class="section-title">
             <h3>قصص نجاح نعتز بها</h3>
             <p>أمل ومشاعر مراجعين تحقق حلمهم بالدعم الطبي المناسب بفضل الله</p>
         </div>
-        
-        <div class="success-grid">
-            <!-- قصة 1 -->
-            <div class="success-box">
-                <div class="success-header">
-                    <div class="success-avatar">💙</div>
-                    <div class="success-meta"><h5>عائلة أبو فهد</h5><span class="date">تأخر إنجاب 7 سنوات • منذ شهرين</span></div>
+
+        <div class="success-container">
+            <!-- كرت عائلة أبو فهد -->
+            <div class="success-card">
+                <div class="card-header">
+                    <div class="user-info">
+                        <h4>عائلة أبو فهد</h4>
+                        <p>تأخر إنجاب 7 سنوات • منذ شهرين</p>
+                    </div>
+                    <div class="avatar-icon"><i class="fa-solid fa-heart"></i></div>
                 </div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"بعد محاولات عديدة غير ناجحة خارج العيادة، رزقنا الله بطفلنا الأول بعد خطة علاجية مخصصة وعملية حقن مجهري دقيقة للغاية وموفقة. ممتنون جداً للدكتور محمود وطاقمه."</p>
+                <div class="rating-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="success-text">"بعد محاولات عديدة غير ناجحة خارج العيادة، رزقنا الله بطفلنا الأول بعد خطة علاجية مخصصة وعملية حقن مجهري دقيقة للغاية وموفقة. ممتنون جداً للدكتور محمود وطاقمه."</p>
             </div>
-            
-            <!-- قصة 2 -->
-            <div class="success-box">
-                <div class="success-header">
-                    <div class="success-avatar pink">💖</div>
-                    <div class="success-meta"><h5>أم جود</h5><span class="date">حالات إجهاض متكرر • منذ 5 أشهر</span></div>
+
+            <!-- كرت أم جود -->
+            <div class="success-card">
+                <div class="card-header">
+                    <div class="user-info">
+                        <h4>أم جود</h4>
+                        <p>حالات إجهاض متكرر • منذ 5 أشهر</p>
+                    </div>
+                    <div class="avatar-icon pink"><i class="fa-solid fa-face-smile-beam"></i></div>
                 </div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"بفضل الله ثم تقنية الفحص الجيني المبكر للأجنة واستبعاد الكروموسومات المصابة في مختبر العيادة، تم الحمل بثبات ورزقت بطفلتي جود بكامل صحتها وعافيتها."</p>
+                <div class="rating-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="success-text">"بفضل الله ثم تقنية الفحص الجيني المبكر للأجنة واستبعاد الكروموسومات المصابة في مختبر العيادة، تم الحمل بثبات ورزقت بطفلتي جود بكامل صحتها وعافيتها."</p>
             </div>
-            
-            <!-- قصة 3 -->
-            <div class="success-box">
-                <div class="success-header">
-                    <div class="success-avatar">💙</div>
-                    <div class="success-meta"><h5>عائلة التميمي</h5><span class="date">عقم ثانوي 4 سنوات • منذ 3 أسابيع</span></div>
+
+            <!-- كرت عائلة التميمي -->
+            <div class="success-card">
+                <div class="card-header">
+                    <div class="user-info">
+                        <h4>عائلة التميمي</h4>
+                        <p>عقم ثانوي 4 سنوات • منذ 3 أسابيع</p>
+                    </div>
+                    <div class="avatar-icon"><i class="fa-solid fa-heart"></i></div>
                 </div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"الحمد لله الذي بنعمته تتم الصالحات، رزقنا بتوأم جميل بعد المتابعة الدقيقة لبروتوكول تنشيط المبيض المكثف والمناسب لحالتي. عيادة متميزة وتتعامل بأعلى درجات السرية والمهنية."</p>
-            </div>
-            
-            <!-- قصة 4 -->
-            <div class="success-box">
-                <div class="success-header">
-                    <div class="success-avatar pink">💖</div>
-                    <div class="success-meta"><h5>أم عبد العزيز</h5><span class="date">تأخر غير مفسر 5 سنوات • منذ شهر</span></div>
+                <div class="rating-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"الفحوصات الهرمونية الشاملة والدقيقة بالعيادة كشفت عن أسباب بسيطة لم نكن نلتفت لها سابقاً، وتم الحمل الطبيعي مباشرة بعد كورس علاجي مخصص وموجه."</p>
-            </div>
-            
-            <!-- قصة 5 -->
-            <div class="success-box">
-                <div class="success-header">
-                    <div class="success-avatar">💙</div>
-                    <div class="success-meta"><h5>أبو ماجد</h5><span class="date">عامل ذكوري شديد • منذ 6 أشهر</span></div>
-                </div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"كنا فاقدين للأمل بسبب ضعف العوامل المخبرية، ولكن باستخدام تقنيات الفرز الإلكتروني الدقيق للحيوانات المنوية بالعيادة تم التلقيح بنجاح تام ورزقنا بمولودنا الأول."</p>
+                <p class="success-text">"الحمد لله الذي بنعمته تتم الصالحات، نشكر الدكتور محمود رأفت على طولة باله وتشخيصه الدقيق لضعف التبويض حتى أكرمنا الله بالحمل الطبيعي."</p>
             </div>
         </div>
     </section>
-    
-    <footer class="footer"><p>عيادة الدكتور محمود رأفت © 2026</p></footer>
+
+    <footer>
+        <p>&copy; عيادة الدكتور محمود رأفت. جميع الحقوق محفوظة 2026</p>
+    </footer>
+
+    <script>
+        const themeBtn = document.getElementById('themeBtn');
+        const icon = themeBtn.querySelector('i');
+        const themeText = document.getElementById('themeText');
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateThemeUI(currentTheme);
+
+        themeBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'dark') {
+                theme = 'light';
+            } else {
+                theme = 'dark';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            updateThemeUI(theme);
+        });
+
+        function updateThemeUI(theme) {
+            if (theme === 'dark') {
+                icon.className = 'fa-solid fa-sun';
+                themeText.textContent = 'الوضع الفاتح';
+            } else {
+                icon.className = 'fa-solid fa-moon';
+                themeText.textContent = 'الوضع الداكن';
+            }
+        }
+    </script>
 </body>
 </html>
