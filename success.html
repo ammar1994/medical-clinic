@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عيادة الدكتور محمود رأفت | النجاح</title>
-    <!-- تحميل أيقونات Font Awesome من السيرفر العالمي -->
+    <title>عيادة الدكتور محمود رأفت | قصص النجاح</title>
+    <!-- تحميل أيقونات Font Awesome الاحترافية الرسمية -->
     <link rel="stylesheet" href="https://cloudflare.com">
     
     <style>
@@ -50,7 +50,7 @@
             color: var(--text-main);
         }
 
-        /* شريط التنقل الاحترافي الموحد المتناسق تماماً */
+        /* شريط التنقل الاحترافي الموحد */
         .navbar {
             background-color: var(--nav-bg);
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
@@ -126,7 +126,7 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.04);
         }
 
-        /* تنسيقات كروت قصص النجاح البيضاء والعصرية */
+        /* تنسيقات كروت قصص النجاح الطبية والمهنية */
         .section-padding {
             padding: 30px 16px;
             max-width: 600px;
@@ -170,12 +170,32 @@
         .card-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .user-block {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* تصميم دائرة الأيقونة الطبية الرسمية */
+        .medical-icon-box {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-bg);
+            border: 1px solid var(--accent-border);
+            color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
         }
 
         .user-info h4 {
-            font-size: 14.5px;
+            font-size: 14px;
             color: var(--text-main);
             font-weight: 800;
         }
@@ -187,27 +207,9 @@
             margin-top: 2px;
         }
 
-        .avatar-icon {
-            font-size: 22px;
-            color: #3b82f6;
-        }
-
-        .avatar-icon.pink {
-            color: #ec4899;
-        }
-
-        .avatar-icon.gold {
-            color: #fbbf24;
-        }
-
-        .avatar-icon.green {
-            color: #10b981;
-        }
-
         .rating-stars {
             color: #fbbf24;
-            font-size: 11px;
-            margin-bottom: 12px;
+            font-size: 10px;
             display: flex;
             gap: 2px;
         }
@@ -217,6 +219,9 @@
             color: var(--text-main);
             line-height: 1.6;
             font-weight: 600;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 12px;
+            margin-top: 4px;
         }
 
         footer {
@@ -231,7 +236,6 @@
 </head>
 <body>
 
-    <!-- شريط القائمة العلوي وزر تبديل الوضع الموحد والمنسق -->
     <nav class="navbar">
         <div class="nav-header">
             <div class="logo-box">
@@ -258,92 +262,104 @@
         </div>
 
         <div class="success-container">
-            <!-- كرت 1: عائلة أبو فهد -->
+            <!-- حالة 1: عائلة أبو فهد -->
             <div class="success-card">
                 <div class="card-header">
-                    <div class="user-info">
-                        <h4>عائلة أبو فهد 👨‍👩‍👦</h4>
-                        <p>تأخر إنجاب 7 سنوات • منذ شهرين</p>
+                    <div class="user-block">
+                        <div class="medical-icon-box"><i class="fa-solid fa-notes-medical"></i></div>
+                        <div class="user-info">
+                            <h4>عائلة أبو فهد</h4>
+                            <p>تأخر إنجاب 7 سنوات • منذ شهرين</p>
+                        </div>
                     </div>
-                    <div class="avatar-icon"><i class="fa-solid fa-heart"></i></div>
-                </div>
-                <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <div class="rating-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
                 </div>
                 <p class="success-text">"بعد محاولات عديدة غير ناجحة خارج العيادة، رزقنا الله بطفلنا الأول بعد خطة علاجية مخصصة وعملية حقن مجهري دقيقة للغاية وموفقة. ممتنون جداً للدكتور محمود وطاقمه."</p>
             </div>
 
-            <!-- كرت 2: أم جود -->
+            <!-- حالة 2: أم جود -->
             <div class="success-card">
                 <div class="card-header">
-                    <div class="user-info">
-                        <h4>أم جود 👧</h4>
-                        <p>حالات إجهاض متكرر • منذ 5 أشهر</p>
+                    <div class="user-block">
+                        <div class="medical-icon-box"><i class="fa-solid fa-dna"></i></div>
+                        <div class="user-info">
+                            <h4>أم جود</h4>
+                            <p>حالات إجهاض متكرر • منذ 5 أشهر</p>
+                        </div>
                     </div>
-                    <div class="avatar-icon pink"><i class="fa-solid fa-face-smile-beam"></i></div>
-                </div>
-                <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <div class="rating-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
                 </div>
                 <p class="success-text">"بفضل الله ثم تقنية الفحص الجيني المبكر للأجنة واستبعاد الكروموسومات المصابة في مختبر العيادة، تم الحمل بثبات ورزقت بطفلتي جود بكامل صحتها وعافيتها."</p>
             </div>
 
-            <!-- كرت 3: عائلة التميمي -->
+            <!-- حالة 3: عائلة التميمي -->
             <div class="success-card">
                 <div class="card-header">
-                    <div class="user-info">
-                        <h4>عائلة التميمي 👶</h4>
-                        <p>عقم ثانوي 4 سنوات • منذ 3 أسابيع</p>
+                    <div class="user-block">
+                        <div class="medical-icon-box"><i class="fa-solid fa-heart-pulse"></i></div>
+                        <div class="user-info">
+                            <h4>عائلة التميمي</h4>
+                            <p>عقم ثانوي 4 سنوات • منذ 3 أسابيع</p>
+                        </div>
                     </div>
-                    <div class="avatar-icon"><i class="fa-solid fa-heart"></i></div>
-                </div>
-                <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <div class="rating-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
                 </div>
                 <p class="success-text">"الحمد لله الذي بنعمته تتم الصالحات، نشكر الدكتور محمود رأفت على طولة باله وتشخيصه الدقيق لضعف التبويض حتى أكرمنا الله بالحمل الطبيعي."</p>
             </div>
 
-            <!-- كرت 4: أم أحمد -->
+            <!-- حالة 4: أم أحمد -->
             <div class="success-card">
                 <div class="card-header">
-                    <div class="user-info">
-                        <h4>أم أحمد 👶🍼</h4>
-                        <p>نجاح عملية أطفال أنابيب • منذ شهر</p>
+                    <div class="user-block">
+                        <div class="medical-icon-box"><i class="fa-solid fa-flask-vial"></i></div>
+                        <div class="user-info">
+                            <h4>أم أحمد</h4>
+                            <p>نجاح عملية أطفال أنابيب • منذ شهر</p>
+                        </div>
                     </div>
-                    <div class="avatar-icon pink"><i class="fa-solid fa-baby-carriage"></i></div>
-                </div>
-                <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <div class="rating-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
                 </div>
                 <p class="success-text">"تجربتي مع العيادة كانت استثنائية، الطاقم الطبي متعاون جداً والمختبر على أعلى مستوى من النظافة والتقنية. بفضل الله وتوفيقه نجحت عملية أطفال الأنابيب من المرة الأولى."</p>
             </div>
 
-            <!-- كرت 5: عائلة المستشار -->
+            <!-- حالة 5: عائلة المستشار -->
             <div class="success-card">
                 <div class="card-header">
-                    <div class="user-info">
-                        <h4>عائلة المستشار 🧑‍🍼✨</h4>
-                        <p>تحديد جنس المولود • منذ أسبوعين</p>
+                    <div class="user-block">
+                        <div class="medical-icon-box"><i class="fa-solid fa-hand-holding-medical"></i></div>
+                        <div class="user-info">
+                            <h4>عائلة المستشار</h4>
+                            <p>تحديد جنس المولود • منذ أسبوعين</p>
+                        </div>
                     </div>
-                    <div class="avatar-icon gold"><i class="fa-solid fa-crown"></i></div>
-                </div>
-                <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <div class="rating-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
                 </div>
                 <p class="success-text">"كنا نتمنى تزيين عائلتنا بمولود ذكر بعد رزقنا بثلاث فتيات، وبتوجيهات الدكتور الدقيقة وعملية الفحص الوراثي، رزقنا الله بـ (فهد). الشكر لله ثم لجهود العيادة المباركة."</p>
             </div>
 
-            <!-- كرت 6: الأستاذ خالد وعائلته -->
+            <!-- حالة 6: الأستاذ خالد وعائلته -->
             <div class="success-card">
                 <div class="card-header">
-                    <div class="user-info">
-                        <h4>الأستاذ خالد وعائلته 🏡❤️</h4>
-                        <p>حمل بعد تنظير رحمي تشخيصي • منذ 6 أيام</p>
+                    <div class="user-block">
+                        <div class="medical-icon-box"><i class="fa-solid fa-stethoscope"></i></div>
+                        <div class="user-info">
+                            <h4>الأستاذ خالد وعائلته</h4>
+                            <p>حمل بعد تنظير رحمي تشخيصي • منذ 6 أيام</p>
+                        </div>
                     </div>
-                    <div class="avatar-icon green"><i class="fa-solid fa-house-medical"></i></div>
-                </div>
-                <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <div class="rating-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
                 </div>
                 <p class="success-text">"بعد تشخيص دقيق لوجود حاجز رحمي بسيط كان يمنع انغراس الأجنة، قام الدكتور بإزالته عبر منظار رحمي متطور وبسيط للغاية، وتفاجأنا بحدوث الحمل الطبيعي في الشهر التالي مباشرة!"</p>
             </div>
@@ -354,7 +370,6 @@
         <p>&copy; عيادة الدكتور محمود رأفت. جميع الحقوق محفوظة 2026</p>
     </footer>
 
-    <!-- كود الجافا سكريبت الذكي الخاص بتبديل المظهر وحفظ خيار المريض -->
     <script>
         const themeBtn = document.getElementById('themeBtn');
         const icon = themeBtn.querySelector('i');
